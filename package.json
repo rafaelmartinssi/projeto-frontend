@@ -1,0 +1,39 @@
+{
+  "name": "project-frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@mdi/font": "7.0.96",
+    "@vueuse/core": "^9.9.0",
+    "axios": "^1.2.1",
+    "maska": "1.5.1",
+    "pinia": "^2.0.23",
+    "roboto-fontface": "*",
+    "vue": "^3.2.38",
+    "vue-router": "^4.0.0",
+    "vuetify": "^3.0.0",
+    "webfontloader": "^1.0.0",
+    "webpack": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "@types/webfontloader": "^1.6.35",
+    "@typescript-eslint/parser": "^5.47.1",
+    "@vitejs/plugin-vue": "^3.0.3",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-vue": "^9.8.0",
+    "prettier": "^2.8.1",
+    "sass": "^1.57.1",
+    "sass-loader": "^13.2.0",
+    "typescript": "^4.0.0",
+    "vite": "^3.0.9",
+    "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vue-eslint-parser": "^9.1.0",
+    "vue-tsc": "^1.0.9"
+  }
+}

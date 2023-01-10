@@ -1,0 +1,7 @@
+@use 'vuetify' with (
+  $color-pack: false,
+);
+
+.v-icon {
+  opacity: 1 !important;
+}

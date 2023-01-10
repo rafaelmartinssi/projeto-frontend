@@ -1,0 +1,2 @@
+- Incluir um loader para o projeto
+- Criar gerador de code_chellange PKCE
