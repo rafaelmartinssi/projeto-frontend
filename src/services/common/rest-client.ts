@@ -7,7 +7,6 @@ import type {
   ResponseListPeageble
 } from "./types"
 import type { AxiosInstance, AxiosResponse } from "axios"
-import router from "@/router"
 
 export const RequestPath = (newPath: string) => {
   return <T extends { new (...args: any[]): {} }>(construtor: T) => {
@@ -74,9 +73,6 @@ export abstract class RestClient<T extends { id?: number }, F = null> {
     let errors: ResponseError | null = null
 
     if (response.request.status !== 200) {
-      if (response.request.status === 401) {
-        router.push("logout")
-      }
       errors = {
         status: response.request.status,
         statusText: response.request.statusText

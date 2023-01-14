@@ -1,4 +1,4 @@
-export interface Infos {
+export interface Info {
   descricao: string
   codigo: number
 }
@@ -10,12 +10,12 @@ export interface ResponseError {
 
 export interface IResponse<T> {
   content: T
-  infos: Infos[]
+  info: Info
 }
 
 export interface IResponseList<T> {
   content: T[]
-  infos: Infos[]
+  info: Info
 }
 
 export interface IResponseListPeageble<T> {
@@ -24,7 +24,7 @@ export interface IResponseListPeageble<T> {
   totalElements: number
   size: number
   page: number
-  infos: Infos[]
+  info: Info
 }
 
 export interface ResponseToken<T> {
@@ -49,10 +49,10 @@ export interface ResponseListPeageble<T> {
 
 export class ResponseListConstructor<T> implements IResponseList<T> {
   content: T[]
-  infos: Infos[]
+  info: Info
   constructor(payload: IResponseList<T>) {
     this.content = payload.content
-    this.infos = payload.infos
+    this.info = payload.info
   }
 }
 
@@ -64,13 +64,13 @@ export class ResponseListPeagebleConstructor<T>
   totalElements: number
   size: number
   page: number
-  infos: Infos[]
+  info: Info
   constructor(payload: IResponseListPeageble<T>) {
     this.content = payload.content
     this.totalPages = payload.totalPages
     this.totalElements = payload.totalElements
     this.size = payload.size
     this.page = payload.page
-    this.infos = payload.infos
+    this.info = payload.info
   }
 }

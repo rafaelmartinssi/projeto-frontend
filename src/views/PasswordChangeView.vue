@@ -27,13 +27,13 @@ const onSubmit = async () => {
   if (confirm) {
     const response = await services.user.changePassword(state.password)
 
-    if (response.data.infos[0].codigo === 0) {
+    if (response.data.info.codigo === 0) {
       alertSuccess.value = true
       onReset()
       form.value.resetValidation()
     } else {
       alertError.value = true
-      message.value = response.data.infos[0].descricao
+      message.value = response.data.info.descricao
     }
   } else {
     return false
