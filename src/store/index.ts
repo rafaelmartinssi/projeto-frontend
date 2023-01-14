@@ -5,6 +5,7 @@ import type { User, Token } from "./types"
 interface State {
   _user: RemovableRef<User>
   _token: RemovableRef<Token>
+  _refreshToken: RemovableRef<Token>
   _isLogged: RemovableRef<boolean>
 }
 
@@ -13,11 +14,13 @@ export const useMainStore: StoreDefinition = defineStore<"main", State>({
   state: () => ({
     _user: useStorage("userSession", {} as User),
     _token: useStorage("token", {} as Token),
+    _refreshToken: useStorage("refreshToken", {} as Token),
     _isLogged: useStorage("isLogged", false)
   }),
   getters: {
     user: (state) => ({ ...state._user }),
     token: (state) => state._token.access_token,
+    refreshToken: (state) => state._token.refresh_token,
     userName: (state) => state._user.nome,
     userId: (state) => state._user.id,
     isLogged: (state) => state._isLogged
