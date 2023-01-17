@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import AppCardDefault from "@/components/AppCardDefault.vue"
 import services from "@/services"
 import { Password } from "src/store/types"
 import { reactive, ref } from "vue"
@@ -42,25 +43,18 @@ const onSubmit = async () => {
 }
 </script>
 <template>
-  <v-card class="rounded-0 ma-2 card-default">
-    <v-card-title class="text-h4 mt-4 mb-4 text-primary font-weight-regular">
-      Senhas
-    </v-card-title>
-    <v-alert v-model="alertSuccess" class="mx-4" closable type="success">
-      Dados salvos com sucesso
-    </v-alert>
-    <v-alert v-model="alertError" class="mx-4" closable type="error">
-      {{ message }}
-    </v-alert>
-    <v-card-text class="text-h5 font-weight-light">
-      <v-card class="mt-5" elevation="0">
-        <div class="d-flex align-center border-card pb-2 mt-2">
-          <v-icon class="ml-4 text-secondary">mdi-lock-check</v-icon>
-          <v-card-title class="text-h5 py-0 text-secondary">
-            Alteração de senha
-          </v-card-title>
-        </div>
-        <v-card-text class="text-h6 font-weight-light mt-5">
+  <AppCardDefault :title="'Senhas'" :icon="'mdi-lock-check'">
+    <template #content>
+      <v-alert v-model="alertSuccess" class="mx-4" closable type="success">
+        Dados salvos com sucesso
+      </v-alert>
+      <v-alert v-model="alertError" class="mx-4" closable type="error">
+        {{ message }}
+      </v-alert>
+      <v-card class="mt-3" elevation="0">
+        <v-card-title class="text-h5 py-0"> Alteração de senha </v-card-title>
+
+        <v-card-text class="text-h6 font-weight-light mt-4">
           Informe a senha atual a nova senha e confime a nova senha para
           alteração.
           <v-form ref="form">
@@ -110,7 +104,7 @@ const onSubmit = async () => {
           <v-row class="mb-2">
             <v-col sm="12" xs="12" md="6" lg="6" xl="12">
               <v-btn
-                variant="tonal"
+                variant="outlined"
                 min-width="150"
                 color="primary"
                 class="text-capitalize mr-3"
@@ -131,14 +125,10 @@ const onSubmit = async () => {
           </v-row>
         </v-card-actions>
       </v-card>
-    </v-card-text>
-  </v-card>
+    </template>
+  </AppCardDefault>
 </template>
 <style scoped lang="scss">
-.border-card {
-  border-bottom: 1px solid #3a6ea5;
-}
-
 .card-default {
   height: calc(100% - 15px);
 }

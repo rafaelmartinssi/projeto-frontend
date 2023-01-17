@@ -7,6 +7,7 @@ interface State {
   _token: RemovableRef<Token>
   _refreshToken: RemovableRef<Token>
   _isLogged: RemovableRef<boolean>
+  _path: RemovableRef<number>
 }
 
 export const useMainStore: StoreDefinition = defineStore<"main", State>({
@@ -15,7 +16,8 @@ export const useMainStore: StoreDefinition = defineStore<"main", State>({
     _user: useStorage("userSession", {} as User),
     _token: useStorage("token", {} as Token),
     _refreshToken: useStorage("refreshToken", {} as Token),
-    _isLogged: useStorage("isLogged", false)
+    _isLogged: useStorage("isLogged", false),
+    _path: useStorage("path", 1)
   }),
   getters: {
     user: (state) => ({ ...state._user }),
@@ -23,7 +25,8 @@ export const useMainStore: StoreDefinition = defineStore<"main", State>({
     refreshToken: (state) => state._token.refresh_token,
     userName: (state) => state._user.nome,
     userId: (state) => state._user.id,
-    isLogged: (state) => state._isLogged
+    isLogged: (state) => state._isLogged,
+    path: (state) => state._path
   },
   actions: {
     logout() {
@@ -39,6 +42,9 @@ export const useMainStore: StoreDefinition = defineStore<"main", State>({
       this._user = { ...user }
       if (this._user) this._isLogged = true
       else this._isLogged = false
+    },
+    setPath(path: number) {
+      this._path = path
     }
   }
 })
