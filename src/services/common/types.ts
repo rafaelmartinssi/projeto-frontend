@@ -18,7 +18,7 @@ export interface IResponseList<T> {
   info: Info
 }
 
-export interface IResponseListPeageble<T> {
+export interface IResponsePeageble<T> {
   content: T[]
   totalPages: number
   totalElements: number
@@ -42,8 +42,8 @@ export interface ResponseList<T> {
   errors: ResponseError | null
 }
 
-export interface ResponseListPeageble<T> {
-  data: IResponseListPeageble<T>
+export interface ResponsePeageble<T> {
+  data: IResponsePeageble<T>
   errors: ResponseError | null
 }
 
@@ -56,16 +56,14 @@ export class ResponseListConstructor<T> implements IResponseList<T> {
   }
 }
 
-export class ResponseListPeagebleConstructor<T>
-  implements IResponseListPeageble<T>
-{
+export class ResponsePeagebleConstructor<T> implements IResponsePeageble<T> {
   content: T[]
   totalPages: number
   totalElements: number
   size: number
   page: number
   info: Info
-  constructor(payload: IResponseListPeageble<T>) {
+  constructor(payload: IResponsePeageble<T>) {
     this.content = payload.content
     this.totalPages = payload.totalPages
     this.totalElements = payload.totalElements
