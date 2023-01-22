@@ -3,8 +3,8 @@ import type {
   ResponseList,
   ResponseError,
   ResponseListConstructor,
-  ResponseListPeagebleConstructor,
-  ResponseListPeageble
+  ResponsePeagebleConstructor,
+  ResponsePeageble
 } from "./types"
 import type { AxiosInstance, AxiosResponse } from "axios"
 
@@ -58,14 +58,15 @@ export abstract class RestClient<T extends { id?: number }, F = null> {
     return this.handleResponse(response)
   }
 
-  public async findAllPeageble(filters?: F): Promise<ResponseListPeageble<T>> {
-    const response = await this.httpClient.get<
-      ResponseListPeagebleConstructor<T>
-    >(this.path, {
-      params: {
-        ...filters
+  public async findAllPeageble(filters?: F): Promise<ResponsePeageble<T>> {
+    const response = await this.httpClient.get<ResponsePeagebleConstructor<T>>(
+      this.path,
+      {
+        params: {
+          ...filters
+        }
       }
-    })
+    )
     return this.handleResponse(response)
   }
 

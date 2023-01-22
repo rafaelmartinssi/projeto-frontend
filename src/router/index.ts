@@ -49,11 +49,6 @@ const routes = [
         path: "/account",
         name: "account",
         component: () => import("@/views/AccountView.vue")
-      },
-      {
-        path: "/password",
-        name: "password",
-        component: () => import("@/views/PasswordChangeView.vue")
       }
     ]
   }

@@ -16,9 +16,18 @@ const logout = () => {
 </script>
 <template>
   <v-layout class="">
-    <v-app-bar height="64" elevation="1">
+    <v-navigation-drawer
+      v-model="drawer"
+      class="bg-base"
+      width="264"
+      :permanent="!mobile"
+      :temporary="mobile"
+    >
+      <AppItemsDrawer></AppItemsDrawer>
+    </v-navigation-drawer>
+    <v-app-bar class="bg-base custom-app-bar-header" elevation="0" height="64">
       <v-app-bar-nav-icon
-        color="primary"
+        color="light"
         variant="text"
         @click.stop="drawer = !drawer"
       >
@@ -27,29 +36,24 @@ const logout = () => {
       <v-tooltip text="Sair">
         <template #activator="{ props }">
           <v-btn icon>
-            <v-icon v-bind="props" color="primary" @click="logout">
+            <v-icon v-bind="props" color="light" @click="logout">
               mdi-logout-variant
             </v-icon>
           </v-btn>
         </template>
       </v-tooltip>
     </v-app-bar>
-    <v-app-bar location="bottom" height="48" elevation="5">
+    <v-app-bar
+      location="bottom"
+      height="48"
+      class="bg-base custom-app-bar-botton"
+      elevation="0"
+    >
       <v-spacer></v-spacer>
       <v-icon color="primary" size="large" class="mr-2">mdi-email</v-icon>
       <v-icon color="primary" size="large" class="mr-2">mdi-facebook</v-icon>
       <v-icon color="primary" size="large" class="mr-5">mdi-instagram</v-icon>
     </v-app-bar>
-    <v-navigation-drawer
-      v-model="drawer"
-      elevation="1"
-      color="primary"
-      width="264"
-      :permanent="!mobile"
-      :temporary="mobile"
-    >
-      <AppItemsDrawer></AppItemsDrawer>
-    </v-navigation-drawer>
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -57,7 +61,10 @@ const logout = () => {
 </template>
 
 <style scoped lang="scss">
-.v-layout {
-  background-color: #efefef;
+.custom-app-bar-header {
+  border-bottom: 1px solid #dcdcdc;
+}
+.custom-app-bar-botton {
+  border-top: 1px solid #dcdcdc;
 }
 </style>

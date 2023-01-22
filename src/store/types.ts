@@ -8,6 +8,7 @@ export interface User {
 export interface Password {
   senhaAtual: string
   novaSenha: string
+  confirmeSenha: string
 }
 
 export interface Token {
