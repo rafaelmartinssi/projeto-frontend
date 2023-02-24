@@ -37,7 +37,7 @@ const logout = () => {
         <template #activator="{ props }">
           <v-btn icon>
             <v-icon v-bind="props" color="light" @click="logout">
-              mdi-logout-variant
+              mdi-logout
             </v-icon>
           </v-btn>
         </template>

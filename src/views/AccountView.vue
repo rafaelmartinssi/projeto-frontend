@@ -56,12 +56,22 @@ const prev = (value: number, path: string) => {
 <template>
   <AppCardDefault>
     <template #content>
-      <v-alert v-model="alertSuccess" class="" closable type="success">
-        Dados salvos com sucesso
-      </v-alert>
-      <v-alert v-model="alertError" class="" closable type="error">
+      <v-snackbar
+        v-model="alertSuccess"
+        color="success"
+        location="top right"
+        :timeout="3000"
+      >
+        Dados salvos com sucesso.
+      </v-snackbar>
+      <v-snackbar
+        v-model="alertError"
+        color="error"
+        location="top right"
+        :timeout="3000"
+      >
         {{ message }}
-      </v-alert>
+      </v-snackbar>
       <v-tabs v-model="tab" color="primary" class="mb-5" density="compact">
         <v-tab
           prepend-icon="mdi-account-outline"
