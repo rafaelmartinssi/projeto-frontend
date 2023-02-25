@@ -1,18 +1,10 @@
 <script lang="ts" setup>
 import { ref } from "vue"
 import { useDisplay } from "vuetify"
-import { useRouter } from "vue-router"
 import AppItemsDrawer from "@/components/AppItemsDrawer.vue"
 
-const router = useRouter()
 const { mobile } = useDisplay()
 const drawer = ref(!mobile.value)
-
-const logout = () => {
-  router.push({
-    name: "logout"
-  })
-}
 </script>
 <template>
   <v-layout class="">
@@ -36,7 +28,11 @@ const logout = () => {
       <v-tooltip text="Sair">
         <template #activator="{ props }">
           <v-btn icon>
-            <v-icon v-bind="props" color="light" @click="logout">
+            <v-icon
+              v-bind="props"
+              color="light"
+              @click="$router.push({ name: 'logout' })"
+            >
               mdi-logout
             </v-icon>
           </v-btn>
