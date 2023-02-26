@@ -1,37 +1,11 @@
-<script setup lang="ts">
-import { useMainStore } from "@/store"
-
-const main = useMainStore()
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <v-list class="bg-base text-light" density="compact" nav>
-    <v-list-item
-      class="py-3"
-      :active="$route.name === 'account'"
-      prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-      :title="main.user.nome"
-      :subtitle="main.user.email"
-    >
-      <template #append>
-        <v-tooltip text="Conta">
-          <template #activator="{ props }">
-            <v-icon
-              v-bind="props"
-              color="light"
-              @click="$router.push({ name: 'account' })"
-            >
-              mdi-cog
-            </v-icon>
-          </template>
-        </v-tooltip>
-      </template>
-    </v-list-item>
-
+    <v-img src="@/assets/logo.png" height="40" class="my-3"></v-img>
     <v-divider></v-divider>
-
+    <v-list-subheader class="mt-2">MENU</v-list-subheader>
     <v-list-item
-      class="mt-2"
       :active="$route.name === 'home'"
       prepend-icon="mdi-home-outline"
       @click="$router.push({ name: 'home' })"
