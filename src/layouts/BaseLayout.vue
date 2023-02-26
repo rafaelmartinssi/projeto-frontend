@@ -97,12 +97,7 @@ const goHome = () => {
       <div v-if="drawer" class="custom-botton-mobile">
         <div>
           <div>
-            <v-icon
-              size="35"
-              class="custom-botton-mobile"
-              color="primary"
-              @click="drawer = !drawer"
-            >
+            <v-icon size="35" class="custom-botton-mobile" color="primary">
               mdi-menu
             </v-icon>
           </div>
@@ -112,7 +107,7 @@ const goHome = () => {
       <div v-if="!drawer" class="custom-botton-mobile">
         <div>
           <div>
-            <v-icon size="35" color="light" @click="drawer = !drawer">
+            <v-icon size="35" color="light" @click="drawer = true">
               mdi-menu
             </v-icon>
           </div>

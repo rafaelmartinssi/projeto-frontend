@@ -30,8 +30,16 @@ const main = useMainStore()
 
     <v-divider></v-divider>
 
+    <v-text-field
+      append-inner-icon="mdi-magnify"
+      label="O que deseja buscar?"
+      density="compact"
+      hide-details
+      variant="outlined"
+      class="my-4"
+    ></v-text-field>
+
     <v-list-item
-      class="mt-2"
       :active="$route.name === 'home'"
       prepend-icon="mdi-home-outline"
       @click="$router.push({ name: 'home' })"

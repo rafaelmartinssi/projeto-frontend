@@ -4,7 +4,16 @@
   <v-list class="bg-base text-light" density="compact" nav>
     <v-img src="@/assets/logo.png" height="40" class="my-3"></v-img>
     <v-divider></v-divider>
-    <v-list-subheader class="mt-2">MENU</v-list-subheader>
+
+    <v-text-field
+      append-inner-icon="mdi-magnify"
+      label="O que deseja buscar?"
+      density="compact"
+      hide-details
+      variant="outlined"
+      class="my-4"
+    ></v-text-field>
+
     <v-list-item
       :active="$route.name === 'home'"
       prepend-icon="mdi-home-outline"
