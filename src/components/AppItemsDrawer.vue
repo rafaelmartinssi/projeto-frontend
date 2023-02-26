@@ -1,23 +1,25 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useMainStore } from "@/store"
+
+const main = useMainStore()
+</script>
 
 <template>
   <v-list class="bg-base text-light" density="compact" nav>
     <v-list-item
-      class="bg-primary mx-2 mb-6"
-      :active="$route.name === 'account'"
-      @click="$router.push({ name: 'account' })"
+      prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
+      :title="main.user.nome"
+      :subtitle="main.user.email"
     >
-      <template #prepend>
-        <v-icon class="mx-2">mdi-circle-small</v-icon>
+      <template #append>
+        <v-btn size="small" variant="text" icon="mdi-cog"></v-btn>
       </template>
-      <v-list-item-title class="text-subtitle-1 font-weight-regular">
-        Gestão de conta
-      </v-list-item-title>
     </v-list-item>
 
-    <v-list-subheader>ITENS MENU</v-list-subheader>
+    <v-divider></v-divider>
 
     <v-list-item
+      class="mt-2"
       :active="$route.name === 'home'"
       prepend-icon="mdi-home-outline"
       @click="$router.push({ name: 'home' })"
@@ -26,6 +28,18 @@
         Início
       </v-list-item-title>
     </v-list-item>
+
+    <v-list-item
+      :active="$route.name === 'account'"
+      prepend-icon="mdi-account-outline"
+      @click="$router.push({ name: 'account' })"
+    >
+      <v-list-item-title class="text-subtitle-1 font-weight-regular">
+        Conta
+      </v-list-item-title>
+    </v-list-item>
+
+    <v-list-subheader class="mt-2">FINANCEIRO</v-list-subheader>
 
     <v-list-group>
       <template #activator="{ props }">

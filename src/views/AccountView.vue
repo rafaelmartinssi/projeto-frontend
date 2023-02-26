@@ -2,12 +2,10 @@
 import { reactive, ref } from "vue"
 import AppCardDefault from "@/components/AppCardDefault.vue"
 import { useMainStore } from "@/store"
-import { useRouter } from "vue-router"
 import { Password } from "src/store/types"
 import services from "@/services"
 import AppTabs, { type Tab } from "@/components/AppTabs.vue"
 
-const router = useRouter()
 const main = useMainStore()
 
 const form = ref()
@@ -63,11 +61,6 @@ const onSubmit = async () => {
     return false
   }
   return false
-}
-
-const prev = (value: number, path: string) => {
-  main.setPath(value)
-  router.push({ name: path })
 }
 </script>
 <template>
@@ -200,15 +193,6 @@ const prev = (value: number, path: string) => {
                     @click="onSubmit"
                   >
                     Salvar
-                  </v-btn>
-                  <v-btn
-                    variant="outlined"
-                    min-width="170"
-                    color="primary"
-                    class="text-capitalize"
-                    @click="prev(1, 'home')"
-                  >
-                    Voltar
                   </v-btn>
                 </v-col>
               </v-row>

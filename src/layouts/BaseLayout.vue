@@ -8,15 +8,6 @@ const drawer = ref(!mobile.value)
 </script>
 <template>
   <v-layout class="">
-    <v-navigation-drawer
-      v-model="drawer"
-      class="bg-base"
-      width="264"
-      :permanent="!mobile"
-      :temporary="mobile"
-    >
-      <AppItemsDrawer></AppItemsDrawer>
-    </v-navigation-drawer>
     <v-app-bar class="bg-base custom-app-bar-header" elevation="0" height="64">
       <v-app-bar-nav-icon
         color="light"
@@ -24,6 +15,8 @@ const drawer = ref(!mobile.value)
         @click.stop="drawer = !drawer"
       >
       </v-app-bar-nav-icon>
+      <v-img src="@/assets/logo.png" max-width="120" class="mb-4 mt-4 ml-2">
+      </v-img>
       <v-spacer></v-spacer>
       <v-tooltip text="Sair">
         <template #activator="{ props }">
@@ -50,6 +43,15 @@ const drawer = ref(!mobile.value)
       <v-icon color="primary" size="large" class="mr-2">mdi-facebook</v-icon>
       <v-icon color="primary" size="large" class="mr-5">mdi-instagram</v-icon>
     </v-app-bar>
+    <v-navigation-drawer
+      v-model="drawer"
+      class="bg-base"
+      width="264"
+      :permanent="!mobile"
+      :temporary="mobile"
+    >
+      <AppItemsDrawer></AppItemsDrawer>
+    </v-navigation-drawer>
     <v-main>
       <router-view></router-view>
     </v-main>
