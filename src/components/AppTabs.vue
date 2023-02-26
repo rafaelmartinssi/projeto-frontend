@@ -14,17 +14,22 @@ const props = defineProps<{
 }>()
 </script>
 <template>
-  <v-tabs v-model="tab" color="primary" class="mx-1 mb-7" density="compact">
+  <v-tabs
+    v-model="tab"
+    color="primary"
+    class="mx-1 mb-7 text-light"
+    centered
+    stacked
+  >
     <v-tab
       v-for="item in props.tabs"
       :key="item.id"
-      :prepend-icon="item.icon"
-      width="170"
-      class="text-body-2 text-disabled font-weight-regular mr-4 rounded"
-      selected-class="bg-primary text-white"
-      :value="item.id"
+      rounded
       hide-slider
+      width="170"
+      :value="item.id"
     >
+      <v-icon>{{ item.icon }}</v-icon>
       {{ item.title }}
     </v-tab>
   </v-tabs>
@@ -32,7 +37,7 @@ const props = defineProps<{
     <v-window-item
       v-for="item in props.tabs"
       :key="item.id"
-      class="px-1 pb-1"
+      class="px-1 pb-1 pt-1"
       :value="item.id"
     >
       <slot :name="`tab:${item.id}`"></slot>

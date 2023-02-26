@@ -1,45 +1,23 @@
-<script setup lang="ts">
-import { useMainStore } from "@/store"
-
-const main = useMainStore()
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <v-list class="bg-base text-light" density="compact" nav>
-    <v-list-item
-      class="py-3"
-      :active="$route.name === 'account'"
-      prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-      :title="main.user.nome"
-      :subtitle="main.user.email"
-    >
-      <template #append>
-        <v-tooltip text="Conta">
-          <template #activator="{ props }">
-            <v-icon
-              v-bind="props"
-              color="light"
-              @click="$router.push({ name: 'account' })"
-            >
-              mdi-cog
-            </v-icon>
-          </template>
-        </v-tooltip>
-      </template>
-    </v-list-item>
-
-    <v-divider></v-divider>
-
+  <v-list class="text-light" density="compact" nav>
     <v-text-field
-      append-inner-icon="mdi-magnify"
+      color="primary"
       label="O que deseja buscar?"
       density="compact"
       hide-details
       variant="outlined"
       class="my-4"
-    ></v-text-field>
+    >
+      <template #append-inner>
+        <v-icon color="primary">mdi-magnify</v-icon>
+      </template>
+    </v-text-field>
 
     <v-list-item
+      color="primary"
+      variant="plain"
       :active="$route.name === 'home'"
       prepend-icon="mdi-home-outline"
       @click="$router.push({ name: 'home' })"
@@ -49,9 +27,26 @@ const main = useMainStore()
       </v-list-item-title>
     </v-list-item>
 
+    <v-list-item
+      color="primary"
+      variant="plain"
+      :active="$route.name === 'account'"
+      prepend-icon="mdi-account-outline"
+      @click="$router.push({ name: 'account' })"
+    >
+      <v-list-item-title class="text-subtitle-1 font-weight-regular">
+        Conta
+      </v-list-item-title>
+    </v-list-item>
+
     <v-list-group>
       <template #activator="{ props }">
-        <v-list-item v-bind="props" prepend-icon="mdi-finance">
+        <v-list-item
+          color="primary"
+          variant="plain"
+          v-bind="props"
+          prepend-icon="mdi-finance"
+        >
           <v-list-item-title class="text-subtitle-1 font-weight-regular">
             Financeiro
           </v-list-item-title>

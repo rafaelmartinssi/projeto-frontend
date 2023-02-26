@@ -39,7 +39,7 @@ const goHome = () => {
   <v-layout class="">
     <v-app-bar
       v-if="!mobile"
-      class="bg-base custom-app-bar-header"
+      class="custom-app-bar-header"
       elevation="0"
       height="64"
     >
@@ -49,8 +49,6 @@ const goHome = () => {
         @click.stop="drawer = !drawer"
       >
       </v-app-bar-nav-icon>
-      <v-img src="@/assets/logo.png" max-width="120" class="mb-4 mt-4 ml-2">
-      </v-img>
       <v-spacer></v-spacer>
       <v-tooltip text="Sair">
         <template #activator="{ props }">
@@ -69,7 +67,7 @@ const goHome = () => {
     <v-navigation-drawer
       v-if="!mobile"
       v-model="drawer"
-      class="bg-base"
+      class=""
       width="264"
       permanent
     >
@@ -79,7 +77,7 @@ const goHome = () => {
       v-if="!mobile"
       location="bottom"
       height="48"
-      class="bg-base custom-app-bar-botton"
+      class="bg-base"
       elevation="0"
     >
       <v-spacer></v-spacer>
@@ -90,81 +88,64 @@ const goHome = () => {
     <v-app-bar
       v-if="mobile"
       location="bottom"
-      class="bg-base align-start custom-app-bar-botton"
+      density="compact"
+      class="align-start custom-app-bar-botton"
       elevation="0"
-      height="64"
     >
       <div v-if="drawer" class="custom-botton-mobile">
         <div>
-          <div>
-            <v-icon size="35" class="custom-botton-mobile" color="primary">
-              mdi-menu
-            </v-icon>
+          <div class="d-flex justify-center">
+            <v-icon color="primary"> mdi-menu </v-icon>
           </div>
-          <div class="text-primary text-body-2">Menu</div>
+          <div class="text-primary text-caption">Menu</div>
         </div>
       </div>
       <div v-if="!drawer" class="custom-botton-mobile">
         <div>
-          <div>
-            <v-icon size="35" color="light" @click="drawer = true">
-              mdi-menu
-            </v-icon>
+          <div class="d-flex justify-center">
+            <v-icon color="light" @click="drawer = true"> mdi-menu </v-icon>
           </div>
-          <div class="text-light text-body-2">Menu</div>
+          <div class="text-light text-caption">Menu</div>
         </div>
       </div>
       <div v-if="item === 'home'" class="custom-botton-mobile">
         <div>
-          <div>
-            <v-icon size="35" class="" color="primary"> mdi-home </v-icon>
+          <div class="d-flex justify-center">
+            <v-icon class="" color="primary"> mdi-home </v-icon>
           </div>
-          <div class="text-primary text-body-2">Início</div>
+          <div class="text-primary text-caption">Início</div>
         </div>
       </div>
       <div v-if="item !== 'home'" class="custom-botton-mobile">
         <div>
-          <div>
-            <v-icon size="35" color="light" @click="goHome"> mdi-home </v-icon>
+          <div class="d-flex justify-center">
+            <v-icon color="light" @click="goHome"> mdi-home </v-icon>
           </div>
-          <div class="text-light text-body-2">Início</div>
+          <div class="text-light text-caption">Início</div>
         </div>
       </div>
       <div v-if="item === 'conta'" class="custom-botton-mobile">
         <div>
-          <div>
-            <v-icon size="35" class="" color="primary"> mdi-account </v-icon>
+          <div class="d-flex justify-center">
+            <v-icon class="" color="primary"> mdi-account </v-icon>
           </div>
-          <div class="text-primary text-body-2">Conta</div>
+          <div class="text-primary text-caption">Conta</div>
         </div>
       </div>
       <div v-if="item !== 'conta'" class="custom-botton-mobile">
         <div>
-          <div>
-            <v-icon size="35" color="light" @click="goAccount">
-              mdi-account
-            </v-icon>
+          <div class="d-flex justify-center">
+            <v-icon color="light" @click="goAccount"> mdi-account </v-icon>
           </div>
-          <div class="text-light text-body-2">Conta</div>
+          <div class="text-light text-caption">Conta</div>
         </div>
       </div>
     </v-app-bar>
-    <v-navigation-drawer
-      v-if="mobile"
-      v-model="drawer"
-      class="bg-base"
-      width="264"
-      temporary
-    >
+    <v-navigation-drawer v-if="mobile" v-model="drawer" class="w-100" temporary>
       <AppItemsDrawerMobile></AppItemsDrawerMobile>
     </v-navigation-drawer>
     <!--Barra superior mobile-->
-    <v-app-bar
-      v-if="mobile"
-      class="bg-base custom-app-bar-header"
-      elevation="0"
-      height="64"
-    >
+    <v-app-bar v-if="mobile" class="bg-primary" elevation="0" density="compact">
       <div></div>
       <v-spacer></v-spacer>
       <v-tooltip text="Sair">
@@ -172,7 +153,7 @@ const goHome = () => {
           <v-btn icon>
             <v-icon
               v-bind="props"
-              color="light"
+              color=""
               @click="$router.push({ name: 'logout' })"
             >
               mdi-logout

@@ -91,7 +91,7 @@ const onSubmit = async () => {
 
             <v-card-text class="font-weight-regular mt-5">
               <v-row class="mb-0">
-                <v-col class="" sm="12" xs="12" md="12" lg="6" xl="6">
+                <v-col cols="12" sm="6">
                   <v-text-field
                     v-model="main.user.nome"
                     readonly
@@ -102,7 +102,7 @@ const onSubmit = async () => {
                     variant="outlined"
                   ></v-text-field>
                 </v-col>
-                <v-col class="" sm="12" xs="12" md="12" lg="6" xl="6">
+                <v-col cols="12" sm="6">
                   <v-text-field
                     v-model="main.user.email"
                     readonly
@@ -137,7 +137,7 @@ const onSubmit = async () => {
               </div>
               <v-form ref="form">
                 <v-row class="mt-3">
-                  <v-col sm="12" xs="12" md="6" lg="6" xl="12">
+                  <v-col cols="12" sm="6">
                     <v-text-field
                       v-model="state.password.senhaAtual"
                       type="password"
@@ -152,7 +152,7 @@ const onSubmit = async () => {
                   </v-col>
                 </v-row>
                 <v-row class="my-0 mt-2">
-                  <v-col sm="12" xs="12" md="6" lg="6" xl="12">
+                  <v-col cols="12" sm="6">
                     <v-text-field
                       v-model="state.password.novaSenha"
                       color="primary"
@@ -165,7 +165,7 @@ const onSubmit = async () => {
                       :rules="[(v: number) => !!v || 'Campo obrigatório']"
                     ></v-text-field>
                   </v-col>
-                  <v-col sm="12" xs="12" md="6" lg="6" xl="12">
+                  <v-col cols="12" sm="6">
                     <v-text-field
                       v-model="state.password.confirmeSenha"
                       type="password"
