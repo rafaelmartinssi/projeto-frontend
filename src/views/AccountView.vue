@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { reactive, ref } from "vue"
+import { reactive, ref, onMounted } from "vue"
 import AppCardDefault from "@/components/AppCardDefault.vue"
 import { useMainStore } from "@/store"
 import { Password } from "src/store/types"
@@ -12,6 +12,12 @@ const form = ref()
 const alertSuccess = ref(false)
 const alertError = ref(false)
 const message = ref("")
+const teleport = "#title"
+const mounted = ref(false)
+
+onMounted(() => {
+  mounted.value = true
+})
 
 const tabs: Tab[] = [
   {
@@ -64,6 +70,7 @@ const onSubmit = async () => {
 }
 </script>
 <template>
+  <teleport v-if="mounted" :to="teleport">Minha conta</teleport>
   <AppCardDefault>
     <template #content>
       <v-snackbar
@@ -84,12 +91,14 @@ const onSubmit = async () => {
       </v-snackbar>
       <AppTabs :tabs="tabs">
         <template #tab:account>
-          <v-card class="custom-card px-5">
-            <v-card-title class="text-h6 text-light font-weight-regular mt-5">
+          <v-card elevation="0" class="card px-5">
+            <v-card-title class="text-h6 text-fontdark font-weight-bold mt-5">
               Dados cadastrais
             </v-card-title>
 
-            <v-card-text class="font-weight-regular mt-5">
+            <v-card-text
+              class="font-weight-regular text-fontdark text-subtitle-2 mt-5"
+            >
               <v-row class="mb-0">
                 <v-col cols="12" sm="6">
                   <v-text-field
@@ -118,20 +127,22 @@ const onSubmit = async () => {
           </v-card>
         </template>
         <template #tab:security>
-          <v-card class="custom-card px-5">
-            <v-card-title class="text-h6 text-light font-weight-regular mt-5">
+          <v-card elevation="0" class="px-5 card">
+            <v-card-title class="text-h6 text-fontdark font-weight-bold mt-5">
               Alteração de senha
             </v-card-title>
 
-            <v-card-text class="font-weight-regular mt-3">
-              <v-row class="text-body-1 text-medium-emphasis">
+            <v-card-text
+              class="font-weight-regular text-fontlight text-subtitle-2 mt-3"
+            >
+              <v-row class="">
                 <v-col> Requisitos para alteração de senha: </v-col>
               </v-row>
-              <div class="text-body-1 text-medium-emphasis my-2">
+              <div class="my-2">
                 <v-icon class="ma-0">mdi-circle-small</v-icon>
                 Pode conter letras e números.
               </div>
-              <div class="text-body-1 text-medium-emphasis my-2">
+              <div class="my-2">
                 <v-icon class="ma-0">mdi-circle-small</v-icon>
                 Conter de 6 a 8 caracteres.
               </div>
@@ -189,7 +200,7 @@ const onSubmit = async () => {
                     min-width="170"
                     variant="flat"
                     color="primary"
-                    class="text-capitalize mr-3"
+                    class="text-capitalize mr-3 rounded-lg"
                     @click="onSubmit"
                   >
                     Salvar
@@ -208,9 +219,8 @@ const onSubmit = async () => {
 .custom-text-field {
   pointer-events: none;
 }
-.custom-card {
-  box-shadow: 0px 2px 10px rgba(76, 78, 100, 0.22);
-  border-radius: 10px;
+.card {
+  border: 1px solid #dcdcdc;
 }
 
 .v-slide-group-item--active {
