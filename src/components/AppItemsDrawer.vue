@@ -51,6 +51,7 @@
       rounded="0"
       :active="$route.name === 'users'"
       prepend-icon="mdi-account-box-multiple"
+      @click="$router.push({ name: 'users' })"
     >
       <v-list-item-title class="text-subtitle-1 font-weight-regular">
         Usuários
