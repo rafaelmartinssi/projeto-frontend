@@ -132,20 +132,7 @@ const onSubmit = async () => {
               Alteração de senha
             </v-card-title>
 
-            <v-card-text
-              class="font-weight-regular text-fontlight text-subtitle-2 mt-3"
-            >
-              <v-row class="">
-                <v-col> Requisitos para alteração de senha: </v-col>
-              </v-row>
-              <div class="my-2">
-                <v-icon class="ma-0">mdi-circle-small</v-icon>
-                Pode conter letras e números.
-              </div>
-              <div class="my-2">
-                <v-icon class="ma-0">mdi-circle-small</v-icon>
-                Conter de 6 a 8 caracteres.
-              </div>
+            <v-card-text class="font-weight-regular text-subtitle-2 mt-3">
               <v-form ref="form">
                 <v-row class="mt-3">
                   <v-col cols="12" sm="6">
@@ -192,10 +179,21 @@ const onSubmit = async () => {
                   </v-col>
                 </v-row>
               </v-form>
+              <v-row class="mt-4">
+                <v-col> Requisitos para alteração de senha: </v-col>
+              </v-row>
+              <div class="my-2">
+                <v-icon class="ma-0">mdi-circle-small</v-icon>
+                Pode conter letras e números.
+              </div>
+              <div class="my-2">
+                <v-icon class="ma-0">mdi-circle-small</v-icon>
+                Conter de 6 a 8 caracteres.
+              </div>
             </v-card-text>
             <v-card-actions class="ml-2">
               <v-row class="mb-2">
-                <v-col sm="12" xs="12" md="6" lg="6" xl="12">
+                <v-col cols="12" sm="6">
                   <v-btn
                     min-width="170"
                     variant="flat"
