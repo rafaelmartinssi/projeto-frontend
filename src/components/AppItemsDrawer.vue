@@ -84,16 +84,6 @@
       <v-list-item
         class="px-3"
         rounded="0"
-        :active="$route.name === 'setup'"
-        @click="$router.push({ name: 'setup' })"
-      >
-        <v-list-item-title class="text-subtitle-1 font-weight-regular">
-          Configurar agenda
-        </v-list-item-title>
-      </v-list-item>
-      <v-list-item
-        class="px-3"
-        rounded="0"
         :active="$route.name === 'schedule'"
         @click="$router.push({ name: 'schedule' })"
       >
